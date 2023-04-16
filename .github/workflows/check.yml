@@ -12,7 +12,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: EkkoG/openwrt-packages-version-checker:main
+      - uses: EkkoG/openwrt-packages-version-checker@main
         env:
           GITHUB_TOKEN: ${{ secrets.P_TOKEN }}
           REPO: Dreamacro/clash
