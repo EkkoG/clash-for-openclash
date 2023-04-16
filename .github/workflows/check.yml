@@ -14,7 +14,7 @@ jobs:
 
       - name: Prepare feeds
         run: |
-          ./check.sh
+          ./check.sh Dreamacro/clash clash.meta.tar.gz
           current_version=$(cat Makefile | grep PKG_VERSION | head -n 1 | cut -d "=" -f 2)
           git config user.name "bot"
           git config user.email "bot@github.com"
