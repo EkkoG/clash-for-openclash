@@ -12,17 +12,8 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Prepare feeds
-        run: |
-          ./check.sh Dreamacro/clash clash.meta.tar.gz
-          current_version=$(cat Makefile | grep PKG_VERSION | head -n 1 | cut -d "=" -f 2)
-          git config user.name "bot"
-          git config user.email "bot@github.com"
-          git add .
-          if [ -z "$(git status --porcelain)" ]; then
-            echo "No changes to commit"
-            exit 0
-          fi
-          git commit -m "$(TZ='Asia/Shanghai' date +@%Y%m%d) Bump Clash.Meta to $current_version"
-          git push --force --quiet "https://x-access-token:${{ secrets.P_TOKEN }}@github.com/$GITHUB_REPOSITORY" HEAD:main
-
+      - uses: EkkoG/openwrt-packages-version-checker:main
+        env:
+          GITHUB_TOKEN: ${{ secrets.P_TOKEN }}
+          REPO: Dreamacro/clash
+          BRANCH: main
