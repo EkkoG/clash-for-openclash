@@ -1,7 +1,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=clash-for-openclash
-PKG_VERSION:=v1.15.1
+PKG_VERSION:=1.15.1
 PKG_RELEASE:=1
 
 PKG_SOURCE:=clash-$(PKG_VERSION).tar.gz
